@@ -2,6 +2,13 @@
 
 ## Thermometer Reader
 
+### Prerequisites:
+
+- MSVC2015 or MSVC2017
+- Microsoft Visual C++ Compiler
+- Qt Creator
+- Appropriate Data Format (describe below)
+
 ### Usage Steps :
 
 At first you run the project and asked you to select Device Report File :
