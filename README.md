@@ -20,6 +20,10 @@ then you have to select another file or exit from project
 
 if appropriate file choosed :
 
-![fourth_step test](Thermometer_Reader/Step_of_project/sample_4.png)
+![forth_step test](Thermometer_Reader/Step_of_project/sample_4.png)
 
 #### appropriate file :
+
+![fifth_step test](Thermometer_Reader/Step_of_project/appropriate file.png)
+ 
+it can be extended from number of sampling and number of channels
