@@ -3,10 +3,10 @@
         <file>main_Ui.qml</file>
     </qresource>
     <qresource prefix="/Images">
-        <file>Close_Icon_256.png</file>
-        <file>doc_2019-10-10_12-24-47.gif</file>
-        <file>Open_Folder_Add_Icon_256.png</file>
         <file>Temp_Icon.ico</file>
-        <file>Minus_Circle_Green.png</file>
+        <file>Close_Icon.png</file>
+        <file>main_Image.gif</file>
+        <file>Minus_Image.png</file>
+        <file>Browse_Image.png</file>
     </qresource>
 </RCC>

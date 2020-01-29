@@ -57,7 +57,7 @@ Item {
         anchors.fill: parent
         sourceSize.height: 0
         sourceSize.width: 0
-        source: "qrc:/Images/doc_2019-10-10_12-24-47.gif"
+        source: "qrc:/Images/main_Image.gif"
         fillMode: Image.PreserveAspectCrop
 
         Text {
@@ -1016,7 +1016,7 @@ Item {
             anchors.fill: parent
             sourceSize.height: 0
             sourceSize.width: 0
-            source: "qrc:/Images/Close_Icon_256.png"
+            source: "qrc:/Images/Close_Icon.png"
             fillMode: Image.Stretch
             ScaleAnimator {
                 id : close_animation
@@ -1049,7 +1049,7 @@ Item {
             anchors.fill: parent
             sourceSize.height: 0
             sourceSize.width: 0
-            source: "qrc:/Images/Open_Folder_Add_Icon_256.png"
+            source: "qrc:/Images/Browse_Image.png"
             fillMode: Image.Stretch
             ScaleAnimator {
                 id : open_animation
@@ -1087,19 +1087,9 @@ Item {
             legend.visible:  false
             //setAxisX:["1","2","3","4","5","6","7","8","9"]
 
-
-
-
-
             LineSeries {
                 name: "LineSeries"
                 id: line_series
-
-
-
-
-
-
 
                 /*   XYPoint { x: 10; y: 5  }
                 XYPoint { x: 10; y: 1 }
@@ -1149,7 +1139,7 @@ Item {
             anchors.fill: parent
             sourceSize.width: 0
             sourceSize.height: 0
-            source: "qrc:/Images/Minus_Circle_Green.png"
+            source: "qrc:/Images/Minus_Image.png"
             fillMode: Image.Stretch
             ScaleAnimator {
                 id: minimize_animation
