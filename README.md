@@ -34,4 +34,5 @@ if appropriate file choosed :
 ![fifth_step test](Thermometer_Reader/Step_of_project/appropriate_file.png)
  
 it can be extended by number of sampling and number of channels
+
 some example files are created in folder "DataTest"
