@@ -2,7 +2,7 @@
 
 ## Thermometer Reader
 
-### Step Usage
+### Usage Steps
 
 At first you run the project and asked you to select Device Report File :
 
@@ -11,3 +11,9 @@ At first you run the project and asked you to select Device Report File :
 if "cancel" selected, the project exited, if "ok" selected, you should choose your .CSV fle :
 
 ![second_step test](Thermometer_Reader/Step_of_project/sample_2.png)
+
+if inappropriate file choosed :
+
+![third_step test](Thermometer_Reader/Step_of_project/sample_3.png)
+
+then you have to select another file or exit from project 
