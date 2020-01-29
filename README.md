@@ -1,2 +1,4 @@
 # Data_Logger
-Work in progress
+
+## Thermometer Reader
+![Thermometer Report Monitor sample](Thermometer_Reader/sample.png)
