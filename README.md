@@ -2,7 +2,7 @@
 
 ## Thermometer Reader
 
-### Usage Steps
+### Usage Steps :
 
 At first you run the project and asked you to select Device Report File :
 
@@ -21,3 +21,5 @@ then you have to select another file or exit from project
 if appropriate file choosed :
 
 ![fourth_step test](Thermometer_Reader/Step_of_project/sample_4.png)
+
+#### appropriate file :
