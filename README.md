@@ -17,3 +17,7 @@ if inappropriate file choosed :
 ![third_step test](Thermometer_Reader/Step_of_project/sample_3.png)
 
 then you have to select another file or exit from project 
+
+if appropriate file choosed :
+
+![fourth_step test](Thermometer_Reader/Step_of_project/sample_4.png)
