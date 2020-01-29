@@ -24,6 +24,6 @@ if appropriate file choosed :
 
 #### appropriate file :
 
-![fifth_step test](Thermometer_Reader/Step_of_project/appropriate file.png)
+![fifth_step test](Thermometer_Reader/Step_of_project/appropriate_file.png)
  
 it can be extended from number of sampling and number of channels
