@@ -126,7 +126,7 @@ QList<long> DataParser::getTimeList() const
     return timeList;
 }
 
-QList<QList<double> > DataParser::getValueList() const
+QList<QList<double>> DataParser::getValueList() const
 {
     return valueList;
 }
@@ -160,7 +160,6 @@ bool DataParser::getCheckData() const
 {
     return checkData;
 }
-
 
 
 

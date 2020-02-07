@@ -9,47 +9,42 @@ import QtGraphicalEffects 1.0
 import QtQuick.Layouts 1.3
 import QtCharts 2.3
 
-
-
-
 Item {
     id: main_element
     width: 1280
     height: 600
-    //Q_DECLARE_METATYPE(QStringList)
     signal close_mainwindow()
     signal open()
     signal channel_selected(int chnum,bool status)
     signal minimize_mainwindow()
     signal viewMode(int tnum)
 
-
-
     property var timeX: readTimeList(timeList)
+    //property var valueY: readValueList(chNumber,chStatus)
     property var ch_num: numberOfchannels()
 
 
     function readTimeList(timeList)
     {
-
         timeX = timeList
         console.log("timeX: ")
         console.log(timeX)
     }
+
+    //    function readValueList(chNumber,chStatus)
+    //    {
+    //        if (chStatus===true)
+    //            return valueY
+    //        console.log("value: ")
+    //        console.log(valueY)
+    //    }
+
     function numberOfchannels()
     {
         ch_num=  numberOfchannels()
         console.log("number of channels: ")
         console.log(ch_num)
     }
-
-
-
-    //    }
-
-
-
-
 
     Image {
         id: main_image
@@ -1026,7 +1021,6 @@ Item {
                 loops: Animation.Infinite
                 duration: 1000
                 running: false
-
             }
         }
     }
@@ -1085,43 +1079,42 @@ Item {
             objectName: "MainChart"
             anchors.fill: chart_rectangle
             legend.visible:  false
-            //setAxisX:["1","2","3","4","5","6","7","8","9"]
+
+            //            ValueAxis {
+            //                id: axisX
+            //            }
+
+            //            ValueAxis {
+            //                id: axisY
+            //            }
 
             LineSeries {
                 name: "LineSeries"
                 id: line_series
 
-                /*   XYPoint { x: 10; y: 5  }
-                XYPoint { x: 10; y: 1 }
-                XYPoint { x: 15; y: 5 }
-                XYPoint { x: 20; y: 10 }
-                XYPoint { x: 25; y: 5 }
-                XYPoint { x: 30; y: 20 }
-                XYPoint { x: 40; y: 10 }*/
-
-
-
                 axisX: {
                     id: axis_x
                     objectName:"axis_x"
-
-
-
                 }
 
                 axisY: ValueAxis {
                     id: axis_y
 
                 }
-            }
 
-            MouseArea {
-                id: mouseArea_chart
-                anchors.fill: chartview
-
-
+                //            ScatterSeries {
+                //                id: series2
+                //                axisX: axisX
+                //                axisY: axisY
+                //            }
             }
         }
+        //    MouseArea {
+        //        id: mouseArea_chart
+        //        anchors.fill: chartview
+
+
+        //    }
     }
 
     MouseArea {
@@ -1150,22 +1143,9 @@ Item {
                 to: 1
                 duration: 1000
             }
-
-
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
 
 
 

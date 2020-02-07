@@ -22,15 +22,18 @@ public:
     void setDp(DataParser* _dp);
     void ErrorMessage();
     void Xaxis();
+    void PassNumCh();
+   // QList<double>  GetChannelValueList(int _chNum, bool _chStatus)  ;
 
 
 private slots:
+
     void Close_Window();
     void Open_File_Ui();
     void Minimize();
-    void PassNumCh( );
-    void TimeScaleMode(int mode);
 
+    void TimeScaleMode(int mode);
+    void ChannelCheckbox(int chNum,bool status);
 
 private:
 

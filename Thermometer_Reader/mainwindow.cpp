@@ -86,8 +86,6 @@ bool MainWindow::StartUpMessage()
     }
 }
 
-
-
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -102,9 +100,6 @@ QString* MainWindow::GetUrlFile()
 {
     return urlFile ;
 }
-
-
-
 
 void MainWindow::Close_Window() //signal-slot-Ui
 {
@@ -187,19 +182,17 @@ void MainWindow::ErrorMessage()
         break ;
     }
 
-
     }
 }
 
 void MainWindow::Xaxis()
 {
-    int mode ;
+    //int mode ;
 
     QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readTimeList",
                               Q_ARG(QVariant,dp->ConvertTime(timeStatus)));
 
 }
-
 
 void MainWindow::PassNumCh( )
 {
@@ -209,10 +202,21 @@ void MainWindow::PassNumCh( )
 }
 
 void MainWindow::TimeScaleMode(int mode)//slot
-
 {
     timeStatus = mode ;
     Xaxis() ;
+}
+
+void MainWindow::ChannelCheckbox(int chNum,bool chStatus)// slot
+{
+    QList<QList<double>> values ;
+    QList<double> rowValue ;
+    values = dp->getValueList();
+    if (chStatus==true)
+        rowValue = values[chNum];
+    QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "ReadValueList",
+                              Q_RETURN_ARG(QList<double>, rowValue),
+                              Q_ARG(int,chNum), Q_ARG(bool,chStatus));
 
 }
 
@@ -221,6 +225,12 @@ void MainWindow::setDp(DataParser* _dp)
     dp = _dp;
 }
 
-
+//QList<double> MainWindow::GetChannelValueList(int chNum,bool chStatus)
+//{
+//  QList<QList<double>> values ;
+//  values = dp->getValueList();
+//  if (chStatus==true)
+//    return values[chNum];
+//}
 
 

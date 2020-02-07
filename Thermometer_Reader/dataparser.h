@@ -17,6 +17,7 @@ public:
     QList<long> getTimeList() const;
     QList<QList<double> > getValueList() const ;
 
+
     double getNumberOfChannel() const;
     double getNumberOfSampling() const;
 
