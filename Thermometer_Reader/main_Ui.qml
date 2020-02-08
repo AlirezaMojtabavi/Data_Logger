@@ -15,29 +15,28 @@ Item {
     height: 600
     signal close_mainwindow()
     signal open()
-    signal channel_selected(int chnum,bool status)
+    signal channel_selected(int chnum)
     signal minimize_mainwindow()
     signal viewMode(int tnum)
 
     property var timeX: readTimeList(timeList)
-    //property var valueY: readValueList(chNumber,chStatus)
+    property var valueY: readValueList(chValue)
     property var ch_num: numberOfchannels()
 
 
-    function readTimeList(timeList)
-    {
-        timeX = timeList
-        console.log("timeX: ")
-        console.log(timeX)
-    }
+//    function readTimeList(timeList)
+//    {
+//       // timeX = timeList
+//        console.log("timeX: ")
+//        console.log(timeX)
+//    }
 
-    //    function readValueList(chNumber,chStatus)
-    //    {
-    //        if (chStatus===true)
-    //            return valueY
-    //        console.log("value: ")
-    //        console.log(valueY)
-    //    }
+    function readValueList(chValue)
+    {     
+       // valueY = chValue
+        console.log("value: ")
+        console.log(valueY)
+    }
 
     function numberOfchannels()
     {
@@ -398,8 +397,7 @@ Item {
                     x: 7
                     width: 95
                     height: 21
-                    onCheckedChanged: channel_selected(1,checkBox1.checked)
-
+                    onCheckedChanged: channel_selected(1)
                     style: CheckBoxStyle {
                         label: Text {
                             color: "dark blue"

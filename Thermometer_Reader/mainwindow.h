@@ -21,9 +21,9 @@ public:
     QString* GetUrlFile();
     void setDp(DataParser* _dp);
     void ErrorMessage();
-    void Xaxis();
     void PassNumCh();
-   // QList<double>  GetChannelValueList(int _chNum, bool _chStatus)  ;
+    QList<double> Yaxis(int chn);
+    QList<double> readValuesOfChannel(QList<double>) ;
 
 
 private slots:
@@ -33,21 +33,22 @@ private slots:
     void Minimize();
 
     void TimeScaleMode(int mode);
-    void ChannelCheckbox(int chNum,bool status);
+    void ChannelCheckbox(int chNum);
 
 private:
 
     Ui::MainWindow *ui;
     bool myApp;
     int timeStatus=0 ;
+    int chNumber ;
+    bool chStatus ;
+    QList<double> rowValue;
 
     QString *urlFile = new QString;
     DataParser* dp ;
 
     bool StartUpMessage();
     void OpenFile();
-
-
 
 };
 #endif // MAINWINDOW_H

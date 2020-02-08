@@ -48,8 +48,8 @@ MainWindow::MainWindow(QWidget *parent)
         connect(ui->quickWidget->rootObject(),SIGNAL(close_mainwindow()),
                 this,SLOT(Close_Window()));
 
-        connect(ui->quickWidget->rootObject(),SIGNAL(channel_selected(int, bool)),
-                this,SLOT(ChannelCheckbox(int,bool)));
+        connect(ui->quickWidget->rootObject(),SIGNAL(channel_selected(int)),
+                this,SLOT(ChannelCheckbox(int)));
 
         connect(ui->quickWidget->rootObject(),SIGNAL(minimize_mainwindow()),
                 this,SLOT(Minimize()));
@@ -131,7 +131,6 @@ void MainWindow::Open_File_Ui() //signal-slot-Ui
 void MainWindow::Minimize()//Ui
 {
     QWidget::setWindowState(Qt::WindowMinimized);
-
 }
 
 void MainWindow::OpenFile()
@@ -168,7 +167,6 @@ void MainWindow::ErrorMessage()
                                          "Please select another file"),
                                       QMessageBox::Ok| QMessageBox::Cancel);
 
-
     switch (error) {
     case QMessageBox::Ok:
     {
@@ -185,12 +183,24 @@ void MainWindow::ErrorMessage()
     }
 }
 
-void MainWindow::Xaxis()
+void MainWindow::TimeScaleMode(int mode)//slot
 {
-    //int mode ;
-
+    timeStatus = mode ;
     QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readTimeList",
                               Q_ARG(QVariant,dp->ConvertTime(timeStatus)));
+}
+
+void MainWindow::ChannelCheckbox(int chNum)// slot
+{
+    chNumber = chNum ;
+  //  chStatus = chState ;
+    if (chStatus)
+  {
+      rowValue = dp->getValueList()[chNumber] ;
+  }
+    QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readValueList",
+                                                     Q_ARG(QList<double>,this->Yaxis(chNumber)));
+
 
 }
 
@@ -198,25 +208,17 @@ void MainWindow::PassNumCh( )
 {
     QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "numberOfchannels",
                               Q_ARG(QVariant,dp->getNumberOfChannel()));
-
 }
 
-void MainWindow::TimeScaleMode(int mode)//slot
+QList<double> MainWindow::Yaxis(int chn)
 {
-    timeStatus = mode ;
-    Xaxis() ;
-}
-
-void MainWindow::ChannelCheckbox(int chNum,bool chStatus)// slot
-{
-    QList<QList<double>> values ;
-    QList<double> rowValue ;
-    values = dp->getValueList();
-    if (chStatus==true)
-        rowValue = values[chNum];
-    QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "ReadValueList",
-                              Q_RETURN_ARG(QList<double>, rowValue),
-                              Q_ARG(int,chNum), Q_ARG(bool,chStatus));
+    chNumber= chn ;
+ //     if (chStatus)
+//    {
+        rowValue = dp->getValueList()[chNumber] ;
+        qDebug() <<rowValue;
+        return rowValue;
+ //   }
 
 }
 
@@ -224,13 +226,5 @@ void MainWindow::setDp(DataParser* _dp)
 {
     dp = _dp;
 }
-
-//QList<double> MainWindow::GetChannelValueList(int chNum,bool chStatus)
-//{
-//  QList<QList<double>> values ;
-//  values = dp->getValueList();
-//  if (chStatus==true)
-//    return values[chNum];
-//}
 
 

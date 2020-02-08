@@ -19,7 +19,6 @@ int main(int argc, char *argv[])
     DataParser *parseData = new DataParser ;
     w.setDp(parseData);
 
-
     w.setWindowFlags(Qt::Window | Qt::FramelessWindowHint /*| Qt::WindowStaysOnTopHint*/ );
 
     QRect screenGeometry = QApplication::desktop()->screenGeometry(); // center of screen
@@ -48,6 +47,8 @@ int main(int argc, char *argv[])
     //parseData->ConvertTime(3);
 
     qDebug()<<w.GetMyApp() ;
+
+   // qDebug()<<parseData->getValueList()[1];
 
     if (w.GetMyApp()==false)
         return 0;
