@@ -22,7 +22,7 @@ public:
     void setDp(DataParser* _dp);
     void ErrorMessage();
     void PassNumCh();
-    QList<double> Yaxis(int chn);
+    QList<QVariant> Yaxis(int chn);
     QList<double> readValuesOfChannel(QList<double>) ;
 
 
@@ -31,7 +31,6 @@ private slots:
     void Close_Window();
     void Open_File_Ui();
     void Minimize();
-
     void TimeScaleMode(int mode);
     void ChannelCheckbox(int chNum);
 
@@ -42,7 +41,7 @@ private:
     int timeStatus=0 ;
     int chNumber ;
     bool chStatus ;
-    QList<double> rowValue;
+    QList<QVariant> rowValue;
 
     QString *urlFile = new QString;
     DataParser* dp ;

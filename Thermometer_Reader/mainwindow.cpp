@@ -18,9 +18,6 @@
 #include <iostream>
 #include <QMetaObject>
 
-
-
-
 QT_CHARTS_USE_NAMESPACE
 
 
@@ -187,20 +184,18 @@ void MainWindow::TimeScaleMode(int mode)//slot
 {
     timeStatus = mode ;
     QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readTimeList",
+
                               Q_ARG(QVariant,dp->ConvertTime(timeStatus)));
 }
 
 void MainWindow::ChannelCheckbox(int chNum)// slot
 {
     chNumber = chNum ;
-  //  chStatus = chState ;
-    if (chStatus)
-  {
-      rowValue = dp->getValueList()[chNumber] ;
-  }
-    QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readValueList",
-                                                     Q_ARG(QList<double>,this->Yaxis(chNumber)));
+    //chStatus = chS;
+  // QList<double> rowValues = Yaxis(chNumber,chStatus);
 
+   QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readValueList",
+                                Q_ARG(QVariant, this->Yaxis(chNumber)));
 
 }
 
@@ -210,16 +205,18 @@ void MainWindow::PassNumCh( )
                               Q_ARG(QVariant,dp->getNumberOfChannel()));
 }
 
-QList<double> MainWindow::Yaxis(int chn)
+QList<QVariant> MainWindow::Yaxis(int chn)
 {
-    chNumber= chn ;
- //     if (chStatus)
-//    {
-        rowValue = dp->getValueList()[chNumber] ;
-        qDebug() <<rowValue;
-        return rowValue;
- //   }
+    chNumber = chn ;
+    //chStatus = chState ;
+ //   QList<double> clean= {0.0} ;
 
+   //  if (chStatus)
+  // {
+        rowValue = dp->getValueList()[chNumber-1] ;
+        //qDebug() <<rowValue;
+        return rowValue;
+  // }
 }
 
 void MainWindow::setDp(DataParser* _dp)

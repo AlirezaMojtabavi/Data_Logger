@@ -3,12 +3,8 @@
 #include <QDebug>
 #include <iostream>
 
-
-
-
 DataParser::DataParser()
 {
-
 }
 
 void DataParser::ParseCsvFile(QString* url)
@@ -21,7 +17,7 @@ void DataParser::ParseCsvFile(QString* url)
         auto myLine = line.split(',');
         int lineSize = myLine.size(); // return number of every char
         numberOfChannel = (lineSize-1)/2 ; // return number of channel
-        QList<double> tempListValue ;
+        QList<QVariant> tempListValue ;
 
         if(channelList.isEmpty())
         {
@@ -116,7 +112,7 @@ QStringList DataParser::ConvertTime(int numViewMode)
     }
 }
 
-QStringList DataParser::getChannelList() const
+QVariant DataParser::getChannelList() const
 {
     return channelList;
 }
@@ -126,7 +122,7 @@ QList<long> DataParser::getTimeList() const
     return timeList;
 }
 
-QList<QList<double>> DataParser::getValueList() const
+QList<QList<QVariant>> DataParser::getValueList() const
 {
     return valueList;
 }

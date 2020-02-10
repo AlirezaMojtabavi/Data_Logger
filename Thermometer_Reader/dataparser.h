@@ -13,9 +13,9 @@ public:
     void ParseCsvFile(QString* url);
     QStringList ConvertTime(int numViewMode);
 
-    QStringList getChannelList() const;
+    QVariant getChannelList() const;
     QList<long> getTimeList() const;
-    QList<QList<double> > getValueList() const ;
+    QList<QList<QVariant>>  getValueList() const ;
 
 
     double getNumberOfChannel() const;
@@ -35,7 +35,7 @@ private:
 
     QStringList channelList ;
     QList<long> timeList ;
-    QList <QList <double> > valueList;
+    QList<QList<QVariant>> valueList;
 
     QStringList humanTime_HHmm ;
     QStringList humanTime_ddMM ;

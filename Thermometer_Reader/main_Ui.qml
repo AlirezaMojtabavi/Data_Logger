@@ -24,17 +24,17 @@ Item {
     property var ch_num: numberOfchannels()
 
 
-//    function readTimeList(timeList)
-//    {
-//       // timeX = timeList
-//        console.log("timeX: ")
-//        console.log(timeX)
-//    }
+    function readTimeList(timeList)
+    {
+        timeX = timeList
+        console.log("timeX: ")
+        console.log(timeX)
+    }
 
     function readValueList(chValue)
-    {     
-       // valueY = chValue
-        console.log("value: ")
+    {
+        valueY = chValue
+        console.log("value of channel: ")
         console.log(valueY)
     }
 
@@ -397,7 +397,7 @@ Item {
                     x: 7
                     width: 95
                     height: 21
-                    onCheckedChanged: channel_selected(1)
+                    onCheckedChanged:  channel_selected(1)
                     style: CheckBoxStyle {
                         label: Text {
                             color: "dark blue"
