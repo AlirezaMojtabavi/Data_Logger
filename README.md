@@ -2,6 +2,13 @@
 
 ## Thermometer Reader
 
+### Prerequisites:
+
+- MSVC2015 or MSVC2017
+- Microsoft Visual C++ Compiler
+- Qt Creator
+- Appropriate Data Format (describe below)
+
 ### Usage Steps :
 
 At first you run the project and asked you to select Device Report File :
@@ -24,6 +31,8 @@ if appropriate file choosed :
 
 #### appropriate file :
 
-![fifth_step test](Thermometer_Reader/Step_of_project/appropriate file.png)
+![fifth_step test](Thermometer_Reader/Step_of_project/appropriate_file.png)
  
-it can be extended from number of sampling and number of channels
+it can be extended by number of sampling and number of channels
+
+some example files are created in folder "DataTest"
