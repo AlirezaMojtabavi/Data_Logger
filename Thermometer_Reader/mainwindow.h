@@ -21,7 +21,7 @@ public:
     QString* GetUrlFile();
     void setDp(DataParser* _dp);
     void ErrorMessage();
-    void PassNumCh();
+    void PassNumCh();// not working yet
     QList<QVariant> Yaxis(int chn);
     QList<double> readValuesOfChannel(QList<double>) ;
 
@@ -39,9 +39,10 @@ private:
     Ui::MainWindow *ui;
     bool myApp;
     int timeStatus=0 ;
-    int chNumber ;
-    bool chStatus ;
+    std::vector<bool> activeChannels;
     QList<QVariant> rowValue;
+    bool chStatus ;
+    int chNum ;
 
     QString *urlFile = new QString;
     DataParser* dp ;

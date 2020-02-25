@@ -53,6 +53,16 @@ MainWindow::MainWindow(QWidget *parent)
 
         connect(ui->quickWidget->rootObject(),SIGNAL(viewMode(int)),
                 this,SLOT(TimeScaleMode(int)));
+
+
+//        for (int i = 0; i < 10; ++i)
+//        {
+//            QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "set_channel_data",
+//                                      Q_ARG(QVariant,i),
+//                                      Q_ARG(QVariant,Yaxis(i)));
+
+//        }
+
     }
 }
 
@@ -188,18 +198,18 @@ void MainWindow::TimeScaleMode(int mode)//slot
                               Q_ARG(QVariant,dp->ConvertTime(timeStatus)));
 }
 
-void MainWindow::ChannelCheckbox(int chNum)// slot
+void MainWindow::ChannelCheckbox(int num)// slot
 {
-    chNumber = chNum ;
-    //chStatus = chS;
-  // QList<double> rowValues = Yaxis(chNumber,chStatus);
+    chNum = num ;
 
-   QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readValueList",
-                                Q_ARG(QVariant, this->Yaxis(chNumber)));
+    QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readValueList",
+                              Q_ARG(QVariant, this->Yaxis(chNum)));
+
+    // QList<double> rowValues = Yaxis(chNumber,chStatus);
 
 }
 
-void MainWindow::PassNumCh( )
+void MainWindow::PassNumCh( )//not working yet
 {
     QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "numberOfchannels",
                               Q_ARG(QVariant,dp->getNumberOfChannel()));
@@ -207,16 +217,10 @@ void MainWindow::PassNumCh( )
 
 QList<QVariant> MainWindow::Yaxis(int chn)
 {
-    chNumber = chn ;
-    //chStatus = chState ;
- //   QList<double> clean= {0.0} ;
+    rowValue = dp->getValueList()[chn-1] ;
 
-   //  if (chStatus)
-  // {
-        rowValue = dp->getValueList()[chNumber-1] ;
-        //qDebug() <<rowValue;
-        return rowValue;
-  // }
+    return rowValue;
+
 }
 
 void MainWindow::setDp(DataParser* _dp)
