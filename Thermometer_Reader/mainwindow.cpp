@@ -192,10 +192,10 @@ void MainWindow::ErrorMessage()
 
 void MainWindow::TimeScaleMode(int mode)//slot
 {
-    timeStatus = mode ;
+    //timeStatus = mode ;
     QMetaObject::invokeMethod(ui->quickWidget->rootObject(), "readTimeList",
 
-                              Q_ARG(QVariant,dp->ConvertTime(timeStatus)));
+                              Q_ARG(QVariant,dp->ConvertTime(mode)));
 }
 
 void MainWindow::ChannelCheckbox(int num)// slot

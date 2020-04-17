@@ -96,17 +96,17 @@ QStringList DataParser::ConvertTime(int numViewMode)
     switch (numViewMode) {
     case 1:
     {
-        qDebug() <<humanTime_HHmm;
+        //qDebug() <<humanTime_HHmm;
         return humanTime_HHmm;
     }
     case 2:
     {
-        qDebug() <<humanTime_ddMM;
+       // qDebug() <<humanTime_ddMM;
         return humanTime_ddMM;
     }
     case 3:
     {
-        qDebug() <<humanTime_MMyyyy;
+       // qDebug() <<humanTime_MMyyyy;
         return humanTime_MMyyyy;
     }
     }

@@ -23,38 +23,21 @@ Item {
 
     property var valueY : readValueList(chNumber)
 
-    //     property var ch_num: numberOfchannels()
 
-    //    function change_channel_visibility(chNum, visible)
-    //    {
-    //        channelGraphs[chNum].show(visible)
-    //    }
+    function readTimeList(timeList)
+    {
+        timeX = timeList
+        console.log("timeX: ")
+        console.log(timeX)
+        return timeX
+    }
 
-    //    function set_channel_data(chNum, dataList)
-    //    {
-
-    //    }
-
-        function readTimeList(timeList)
-        {
-            timeX = timeList
-            console.log("timeX: ")
-            console.log(timeX)
-        }
-
-        function readValueList(chNumber)
-        {
-            valueY = chNumber
-            console.log("value of channel: ")
-            console.log(valueY)
-        }
-
-    //    function numberOfchannels()
-    //    {
-    //        ch_num=  numberOfchannels()
-    //        console.log("number of channels: ")
-    //        console.log(ch_num)
-    //    }
+    function readValueList(chNumber)
+    {
+        valueY = chNumber
+        console.log("value of channel: ")
+        console.log(valueY)
+    }
 
     Image {
         id: main_image
@@ -847,6 +830,7 @@ Item {
                 id: radioButton1
                 objectName: "RadioButton1"
 
+
                 x: 19
                 y: 8
                 width: 90
@@ -1088,41 +1072,31 @@ Item {
             id: chartview
             anchors.fill: chart_rectangle
             legend.visible:  false
+            antialiasing: true
 
-            //            ValueAxis {
-            //                id: axisX
-            //            }
+            ValueAxis {
+                id: axisX
+            }
 
-            //            ValueAxis {
-            //                id: axisY
-            //            }
+            ValueAxis {
+                id: axisY
+            }
 
             LineSeries {
                 name: "LineSeries"
                 id: line_series
+                axisX: axisX
+                axisY: axisY
 
-                axisX: {
-                    id: axis_x
-                    objectName:"axis_x"
-                }
 
-                axisY: ValueAxis {
-                    id: axis_y
+                // XYPoint { x: timeX; y: valueY }
 
-                }
             }
         }
-        //    MouseArea {
-        //        id: mouseArea_chart
-        //        anchors.fill: chartview
-
-
-        //    }
-        // Add data dynamically to the series
-        //        Component.onCompleted: {
-        //            for (var i = 0; i <= 19; i++) {
-        //                line_series.a
-
+    }
+    // Add data dynamically to the series
+    Component.onCompleted: {
+            line_series.append(timeX,valueY);
     }
 
 
